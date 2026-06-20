@@ -52,13 +52,25 @@ const routes = [
   { path: '/master/split-grouping/create',       name: 'CreateSplitGrouping', component: SplitGroupingForm, props: { mode: 'create' } },
   { path: '/master/split-grouping/:id/edit',     name: 'EditSplitGrouping',   component: SplitGroupingForm, props: r => ({ id: r.params.id, mode: 'edit' }) },
 
-  // ── Setup Placeholders ────────────────────────────────────────────────
-  { path: '/setup/users',                   name: 'SetupUsers',         component: WorkflowPlaceholder, props: { section: 'users' } },
-  { path: '/setup/settings',                name: 'SetupSettings',      component: WorkflowPlaceholder, props: { section: 'settings' } },
+  // ── Master Interface ──────────────────────────────────────────────────
+  { path: '/master/interface',              name: 'MasterInterfaceList',   component: () => import('../views/MasterInterfaceList.vue') },
+  { path: '/master/interface/create',       name: 'CreateMasterInterface', component: () => import('../views/MasterInterfaceForm.vue'), props: { mode: 'create' } },
+  { path: '/master/interface/:id/edit',     name: 'EditMasterInterface',   component: () => import('../views/MasterInterfaceForm.vue'), props: r => ({ id: r.params.id, mode: 'edit' }) },
 
-  // ── Master Placeholders ───────────────────────────────────────────────
-  { path: '/master/cost-project',           name: 'MasterCostProject',  component: WorkflowPlaceholder, props: { section: 'cost-project' } },
-  { path: '/master/material',               name: 'MasterMaterial',     component: WorkflowPlaceholder, props: { section: 'material' } },
+  // ── Master Item ───────────────────────────────────────────────────────
+  { path: '/master/item',                   name: 'MasterItemList',   component: () => import('../views/MasterItemList.vue') },
+  { path: '/master/item/create',            name: 'CreateMasterItem', component: () => import('../views/MasterItemForm.vue'), props: { mode: 'create' } },
+  { path: '/master/item/:id/edit',          name: 'EditMasterItem',   component: () => import('../views/MasterItemForm.vue'), props: r => ({ id: r.params.id, mode: 'edit' }) },
+
+  // ── Master Supplier ───────────────────────────────────────────────────
+  { path: '/master/supplier',               name: 'MasterSupplierList',   component: () => import('../views/MasterSupplierList.vue') },
+  { path: '/master/supplier/create',        name: 'CreateMasterSupplier', component: () => import('../views/MasterSupplierForm.vue'), props: { mode: 'create' } },
+  { path: '/master/supplier/:id/edit',      name: 'EditMasterSupplier',   component: () => import('../views/MasterSupplierForm.vue'), props: r => ({ id: r.params.id, mode: 'edit' }) },
+
+  // ── Update Landbank ───────────────────────────────────────────────────
+  { path: '/transaction/update-landbank',             name: 'UpdateLandbankList',   component: () => import('../views/UpdateLandbankList.vue') },
+  { path: '/transaction/update-landbank/create',      name: 'CreateUpdateLandbank', component: () => import('../views/UpdateLandbankForm.vue'), props: { mode: 'create' } },
+  { path: '/transaction/update-landbank/:id/edit',    name: 'EditUpdateLandbank',   component: () => import('../views/UpdateLandbankForm.vue'), props: r => ({ id: r.params.id, mode: 'edit' }) },
 
   // ── Real Estate Placeholders ──────────────────────────────────────────
   { path: '/realestate/rab',                name: 'RealEstateRAB',      component: WorkflowPlaceholder, props: { section: 'rab' } },

@@ -8,6 +8,10 @@ use App\Http\Controllers\MasterProjectController;
 use App\Http\Controllers\UpdateSertifikatController;
 use App\Http\Controllers\SiteplanController;
 use App\Http\Controllers\SplitGroupingLandController;
+use App\Http\Controllers\MasterInterfaceController;
+use App\Http\Controllers\MasterItemController;
+use App\Http\Controllers\MasterSupplierController;
+use App\Http\Controllers\UpdateLandbankController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -34,5 +38,17 @@ Route::prefix('v1')->group(function () {
     // ── Split / Grouping Land ────────────────────────────────────────────
     Route::get('split-grouping-lands/land-bank-options', [SplitGroupingLandController::class, 'landBankOptions']);
     Route::apiResource('split-grouping-lands', SplitGroupingLandController::class);
+
+    // ── Master Interface ─────────────────────────────────────────────────
+    Route::apiResource('interfaces', MasterInterfaceController::class);
+
+    // ── Master Item ──────────────────────────────────────────────────────
+    Route::apiResource('items', MasterItemController::class);
+
+    // ── Master Supplier ──────────────────────────────────────────────────
+    Route::apiResource('suppliers', MasterSupplierController::class);
+
+    // ── Update Landbank (Transaction) ────────────────────────────────────
+    Route::apiResource('update-landbanks', UpdateLandbankController::class);
 
 });
